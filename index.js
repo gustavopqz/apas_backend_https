@@ -3,9 +3,9 @@ const express = require("express");
 const app = express();
 
 // HTTPS
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
+// const https = require('https');
+// const fs = require('fs');
+// const path = require('path');
 
 // Middlewars imports
 const cors = require("cors");
@@ -57,16 +57,20 @@ app.use('/profile', profile);
 app.use('/recupera', recupera);
 
 // Lê os arquivos de certificado, chave e CA
-const options = {
-    key: fs.readFileSync('./TSL/server.key'),
-    cert: fs.readFileSync('./TSL/server.crt'),
-    ca: fs.readFileSync('./TSL/ca.crt')
-  };
+// const options = {
+//     key: fs.readFileSync('./TSL/server.key'),
+//     cert: fs.readFileSync('./TSL/server.crt'),
+//     ca: fs.readFileSync('./TSL/ca.crt')
+//   };
 
 // Cria o servidor HTTPS e armazena na variável 'server'
-const server = https.createServer(options, app);
+// const server = https.createServer(options, app);
 
 // Inicia o servidor HTTPS
-server.listen(9000, () => {
-    console.log('Servidor HTTPS rodando na porta 9000');
-});
+// server.listen(9000, () => {
+//     console.log('Servidor HTTPS rodando na porta 9000');
+// });
+
+app.listen(9000, ()=>{
+    console.log("Escutando na porta 9000")
+})
